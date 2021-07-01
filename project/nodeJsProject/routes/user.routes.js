@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user.model')
+const Admin = require('../models/admin.model')
 const bcryptjs=require('bcryptjs')
 const auth = require('../middleware/Auth')
 const Product = require("../models/product.model");
@@ -10,8 +11,15 @@ router.post('/user/SignUp', async(req,res)=>{
     try{
 
         user = new User(req.body)
+        adminsEmail= await Admin.find({email:req.body.email})
+        if(adminsEmail.length){
+          res.send({"Message":"This account Not Available"})
+
+        }else{
+
         await user.save()
         res.status(200).send({"Message":"User Now Has an Account"})
+      }
     }catch(e){
         res.status(500).send({"Message":"This Email Is Already Exist"})
     }

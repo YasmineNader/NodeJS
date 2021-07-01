@@ -10,14 +10,18 @@ router.post('/admin/SignUp', async(req,res)=>{
     try{
 
         admin = new Admin(req.body)
-        // usersemail= await user.find({email:req.body.email})
-        // if(usersemail){
-        //     res.send({"Message":"This account already exist"})
-        // }
-        // console.log(usersemail)
+        usersemail= await user.find({email:req.body.email})
+        console.log(usersemail.length)
+
+        if(usersemail.length){
+            res.send({"Message":"This account Not Available"})
+           // console.log(usersemail)
+        }else{
+        
        
         await admin.save()
         res.status(200).send({"Message":"Admin Now Has Account"})
+        }
     }catch(e){
         // res.status(500).send(e.message)
          res.status(500).send({"Message":"This Email Is Already Exist"})

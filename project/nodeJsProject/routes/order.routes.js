@@ -9,11 +9,14 @@ router.post("/user/AddOrder", auth.userAuth, async (req, res) => {
   try {
     
     order = new Order(req.body);
+    if(!order.products.length){
+      res.send("Please Enter Order")
+    }else{
     order.orderStatus="pending"
     await order.save();
 
     res.status(200).send("Order Is Done");
-  } catch (e) {
+  }} catch (e) {
     res.status(500).send(e);
   }
 });
