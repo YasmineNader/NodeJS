@@ -1,0 +1,32 @@
+DataBase Structure
+
+database => users,products,bill,cart
+
+users=>name,email,password,tokens,userType,Phone,products  ===========>done 
+products=>name,category,brand,color,price,stock,image      ===========>done  
+
+cart=> user_id, Products_Id         ===========>done
+
+bill=> Products_Id,price,bill_id
+
+user_bills=>user_id,bill_id
+
+=====================================================================
+
+Fuctionality=>
+users and admin => signUp, login ,logOut         ===========>done 
+users=>
+1-showProduct                 ===========>done 
+2-orderProduct =>addToCart    ===========>done 
+3-add to cart click to buy and will transfer him to bill
+4-after create bill we decrease stock
+5-if customer click return products increase stock again
+
+admins=>
+1-add Products        ===========>done 
+2-show Products       ===========>done 
+3-edit Products       ============done 
+4-delete Products     ===========>done
+5-update process =>transfer product from company to customer
+
+

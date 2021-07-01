@@ -1,0 +1,22 @@
+{{>header.layouts  }}
+<div class="container">
+<h4>Operation Form</h4>
+<form method="post" >
+  <div class="mb-3">
+    <label for="amount" class="form-label">Amount</label>
+    <input type="text" class="form-control" id="amount"  name="amount">
+    </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Date</label>
+    <input type="date" class="form-control" id="date" name="date">
+  </div>
+  
+   <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <textarea type="text" class="form-control" id="location" style="resize: none;"  name="location"></textarea>
+    </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+  
+</form>
+</div>
+{{>footer.layouts}}

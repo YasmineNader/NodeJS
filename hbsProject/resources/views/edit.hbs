@@ -1,0 +1,36 @@
+{{>header.layout}}
+{{>navbar.layout}}
+{{#if errorStatus}}
+<div class="container alert alert-danger my-3 ">
+    <ul>
+    {{#each errors}}
+<li>{{this}}</li>
+    {{/each}}
+    </ul>
+</div>
+{{/if}}
+<section class="container my-4">
+    <form action="/updateTask/{{task.id}}">
+        <div class="mb-3">
+            <input type="text" name="title" placeholder="task title" class="form-control" value={{ task.title }}>
+        </div>
+        <div class="mb-3">
+            <textarea placeholder="task content" name="content" class="form-control">{{  task.content }}</textarea>
+        </div>
+        {{#if task.status}}
+        <div class="mb-3">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="status" checked>
+            <label class="form-check-label" for="exampleCheck1">Task Status</label>
+        </div>
+        {{else  }}
+        <div class="mb-3">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="status">
+            <label class="form-check-label" for="exampleCheck1">Task Status</label>
+        </div>
+{{/if }}
+        <div class="mb-3">
+            <button type='submit' class="btn btn-success">Update Task</button>
+        </div>
+    </form>
+</section>
+{{>footer.layout}}

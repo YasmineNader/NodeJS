@@ -1,0 +1,38 @@
+{{>header}}
+{{>nav }}
+
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Status</th>
+       <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each alltodos}}
+    <tr>
+      <th scope="row"> {{ this.id }} </th>
+      <td>{{ this.title}}</td>
+      <td>{{ this.content}}</td>
+      <td>{{ this.status}}</td>
+      <td>
+         
+           <a  href="/delete/{{ this.id }}"   class="btn btn-danger">Delete</a>
+            <a href="/showsingle/{{ this.id }}"class="btn btn-primary">Show</a>
+            <a href="/updateForm/{{ this.id }}" class="btn btn-success">Update</a>
+            <a href="/changeStatus/{{ this.id }}" class="btn btn-warning">Change Status</a>
+      </td>
+    </tr>
+     {{/each}}
+  </tbody>
+</table>
+
+
+
+{{>footer}}
